@@ -25,21 +25,21 @@ export const loginUser = (data) =>
 // TASKS
 
 export const getTasks = () =>
-  API.get("/tasks");
+  API.get("/api/tasks");
 
 export const createTask = (data) =>
-  API.post("/tasks", data);
+  API.post("/api/tasks", data);
 
 
 export const deleteTask = (id) =>
-  API.delete(`/tasks/${id}`);
+  API.delete(`/api/tasks/${id}`);
 
 export const updateTaskStatus = (id, status) =>
-  API.patch(`/tasks/${id}/status`, {
+  API.patch(`/api/tasks/${id}/status`, {
     status,
   });
 export const updateTask = (id, taskData) =>
-  API.put(`/tasks/${id}`, taskData);
+  API.put(`/api/tasks/${id}`, taskData);
 // AI
 
 export const generateTaskDetails = (title) =>
