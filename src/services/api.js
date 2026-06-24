@@ -43,7 +43,7 @@ export const updateTask = (id, taskData) =>
 // AI
 
 export const generateTaskDetails = (title) =>
-  API.post("/ai/generate", {
+  API.post("/api/ai/generate", {
     title,
   });
 
