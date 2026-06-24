@@ -26,6 +26,21 @@ function TaskForm({ onSubmit, aiData, editingTask,
   }
 }, [editingTask]);
 
+  useEffect(() => {
+  if (aiData) {
+    setTask((prev) => ({
+      ...prev,
+      description: aiData.description || prev.description,
+      priority:
+        aiData.priority?.toUpperCase().includes("HIGH")
+          ? "HIGH"
+          : aiData.priority?.toUpperCase().includes("LOW")
+          ? "LOW"
+          : "MEDIUM",
+    }));
+  }
+}, [aiData]);
+
   const handleChange = (e) => {
     setTask({
       ...task,
@@ -84,7 +99,7 @@ function TaskForm({ onSubmit, aiData, editingTask,
           rows="4"
           name="description"
           value={
-            aiData?.description ||
+           // aiData?.description ||
             task.description
           }
           onChange={handleChange}
@@ -97,7 +112,7 @@ function TaskForm({ onSubmit, aiData, editingTask,
           <select
             name="priority"
             value={
-              aiData?.priority ||
+              //aiData?.priority ||
               task.priority
             }
             onChange={handleChange}
